@@ -27,8 +27,8 @@ const listar = async function (req, res) {
 const consultarPorCodigo = async function (req, res) {
   console.log("consultar propiedad de tema por código ");
   try {
-    const theme = await ThemePropertyService.consultarPorCodigo(req.params.id);
-    console.log("themes_properties", theme);
+    const theme_property = await ThemePropertyService.consultarPorCodigo(req.params.id);
+    console.log("themes_properties", theme_property);
     if (theme_property && theme_property[0] && theme_property[0][0]) {
       res.json({
         success: true,
