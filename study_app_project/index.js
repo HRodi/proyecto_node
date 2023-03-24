@@ -6,6 +6,7 @@ app.use(bodyParser());
 
 const userRoute = require("./src/route/users/users.route");
 const themeRoute = require("./src/route/themes/themes.route");
+const themePropertyRoute = require("./src/route/themes/themes_properties.route");
 const topicsRoute = require("./src/route/topics/topics.route");
  
 //Ruta raiz
@@ -25,6 +26,7 @@ app.get('/pagina2', function (req, res) {
 //Llamadas a los routes de los UCs
 userRoute(app);
 themeRoute(app);
+themePropertyRoute(app)
 topicsRoute(app);
 
 //puerto en el cual se "escucha"
