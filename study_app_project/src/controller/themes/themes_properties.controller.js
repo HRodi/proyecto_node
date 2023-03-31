@@ -48,6 +48,30 @@ const consultarPorCodigo = async function (req, res) {
   }
 };
 
+const consultarRegTheme = async function (req, res) {
+  console.log("consultar registros de un tema (controller) ");
+  try {
+    const themeReg = await ThemePropertyService.consultarRegTheme(req.params.id);
+    console.log("Registros del tema", themeReg);
+    if (themeReg && themeReg[0] && themeReg[0][0]) {
+      res.json({
+        success: true,
+        regTema: themeReg[0][0],
+      });
+    } else {
+      res.json({
+        success: true,
+        regTema: themeReg,
+      });
+    }
+  } catch (error) {
+    res.json({
+      success: false,
+      error: error.message,
+    });
+  }
+};
+
 const actualizar = async function (req, res) {
   console.log("actualizar propiedades de temas");
     //Variables
@@ -89,4 +113,5 @@ module.exports = {
   actualizar,
   eliminar,
   consultarPorCodigo,
+  consultarRegTheme
 };

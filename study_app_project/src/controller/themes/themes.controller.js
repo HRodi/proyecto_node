@@ -91,5 +91,5 @@ module.exports = {
   listar,
   actualizar,
   eliminar,
-  consultarPorCodigo,
+  consultarPorCodigo
 };

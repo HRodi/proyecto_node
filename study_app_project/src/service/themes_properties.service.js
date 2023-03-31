@@ -39,6 +39,28 @@ const consultarPorCodigo = async function (codiBuscar) {
   }
 };
 
+const consultarRegTheme = async function (codiBuscar) {
+  console.log("consultar registros de un tema ");
+  try {
+    const themes = await sequelize.query(`
+    SELECT t.name AS nombre_del_Tema,
+          t.description AS descripcion_del_tema,
+          tp.property_name AS nombre_de_la_propiedad,
+          tp.property_value AS valor_de_la_propiedad
+    FROM themes t,themes_properties tp
+    WHERE 1=1 AND t.id = ${codiBuscar} and tp.theme_id=t.id AND t.deleted IS false`);
+
+    console.log("themes", themes);
+    if (themes && themes[0] && themes[0][0]) {
+      return themes[0]
+    } else {
+      return []
+    }
+  } catch (error) {
+    console.log(error)
+  }
+};
+
 const actualizar = async function (id, theme_id, property_name, property_value, deleted) {
   console.log("actualizar propiedades de temas");
   //res.send("actualizción de temas");
@@ -71,7 +93,7 @@ const eliminar = async function (codiBorrar) {
   //res.send("eliminar de temas");
 
   await sequelize.query(
-    "UPDATE themes_properties SET deleted=true WHERE id = " + codiBorrar
+    "DELETE FROM themes_properties WHERE id = " + codiBorrar
   );
 };
 
@@ -80,4 +102,5 @@ module.exports = {
   actualizar,
   eliminar,
   consultarPorCodigo,
+  consultarRegTheme
 };
