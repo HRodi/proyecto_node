@@ -7,4 +7,5 @@ module.exports = function(app) {
     app.post("/users/update", userController.actualizar);
     app.delete("/users/delete/:id", userController.eliminar);
     app.post("/user/login",userController.login);
+    app.get("/user/logout/:id",userController.logout);
 }
