@@ -1,6 +1,7 @@
 const { sequelize } = require("../../connection");
 const { UserModel } = require("../../model/user.model");
 const UserService = require("../../service/users.service");
+const jwt = require('jsonwebtoken');
 
 const listar = async function (req, res) {
   console.log("listar usuarios controller");
@@ -24,7 +25,7 @@ const listar = async function (req, res) {
       error: error.message,
     });
   }
-};
+}
 
 const consultarPorCodigo = async function (req, res) {
   console.log("consultar usuario por código ");
@@ -48,7 +49,7 @@ const consultarPorCodigo = async function (req, res) {
       error: error.message,
     });
   }
-};
+}
 
 const actualizar = async function (req, res) {
   console.log("actualizar usuarios");
@@ -76,7 +77,7 @@ const actualizar = async function (req, res) {
       success: false,
     });
   }
-};
+}
 
 const eliminar = async function (req, res) {
   console.log("eliminar usuarios");
@@ -87,11 +88,40 @@ const eliminar = async function (req, res) {
   res.json({
     success: true,
   });
-};
+}
+
+const login = async function (req,res){
+  console.log("Login de usuario");
+  try{
+    const usersDB = await sequelize.query(
+      "SELECT * FROM users WHERE email = '"+req.body.email+"' AND password = '"+req.body.password+"'"
+    );
+    console.log("users",usersDB);
+    let user = null;
+    if(usersDB.length>0 && usersDB[0].length>0){
+      user = usersDB[0][0];
+      if(user.token){
+        res.json({success:false, error:"El usuario ya se autenticó"});
+        return;
+      }
+      let token = jwt.sign({
+        codigo: user.codigo,
+        name: user.name,
+        last_name:user.last_name,
+        avatar:user.avatar,
+        email:user.email
+      },'passwd');
+      const usersDBUpdate = await sequelize.query("UPDATE users SET token = '"+token+"' WHERE id = " +user.id);
+      res.json({success:true, token});
+    }else{
+      res.json({success:false, error: "Usuario no encontrado"});
+    }
+  }catch(error){
+    console.log(error);
+    res.json({success:false, error:error.message});
+  }
+}
 
 module.exports = {
-  listar,
-  actualizar,
-  eliminar,
-  consultarPorCodigo,
+  listar, actualizar, eliminar, consultarPorCodigo, login
 };
