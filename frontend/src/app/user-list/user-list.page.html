@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" />
+    </ion-buttons>
+    <ion-title> Usuarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="usuarios">
+  <ion-card>
+    <ion-list>
+      <ion-item *ngFor="let usuario of usuarios">
+        <ion-label [routerLink]="'/user-edit/' + usuario.id"
+          >{{usuario.name}} {{usuario.last_name}}</ion-label>
+        <ion-icon class="clicable" slot="end" name="create"
+          [routerLink]="'/user-edit/' + usuario.id"
+        />
+        <ion-icon class="clicable"
+          (click)="confirmarBorrado(usuario.id)"
+          slot="end"
+          name="trash"
+        />
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button routerLink="/user-edit/0">
+      <ion-icon name="add" />
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

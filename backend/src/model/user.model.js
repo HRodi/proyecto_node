@@ -22,7 +22,7 @@ const UserModel = sequelize.define('User',{
         type: DataTypes.STRING, allowNull: true
     },
     deleted: {
-        type: DataTypes.BOOLEAN, allowNull: false
+        type: DataTypes.BOOLEAN, allowNull: false, defaultValue:false
     }
 },{
     tableName: 'users',

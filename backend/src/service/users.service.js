@@ -48,6 +48,7 @@ const actualizar = async function (id, name, last_name, avatar, email, password,
   const data = {id, name, last_name, avatar, email, password, deleted}
   try {
     let usrExiste = null;
+    console.log("ID:",id)
     if (id) {
       usrExiste = await UserModel.findByPk(id);
     }
