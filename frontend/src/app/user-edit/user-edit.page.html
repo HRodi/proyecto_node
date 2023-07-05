@@ -13,12 +13,9 @@
 <ion-content [fullscreen]="true" *ngIf="usuario">
   <ion-item>
     <ion-input
-      label="Nombre:"
-      label-placement="stacked"
-      placeholder="Ingrese el nombre"
-      [(ngModel)]="usuario.name"
-      name="nombre_usuario" type="text" #name="ngModel"
-    ></ion-input>
+      label="Nombre:" label-placement="stacked"
+      placeholder="Nombre del usuario" [(ngModel)]="usuario.name">
+    </ion-input>
   </ion-item>
   <ion-item>
     <ion-input

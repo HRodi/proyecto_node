@@ -36,7 +36,7 @@ export class ThemeEditPage implements OnInit {
   }
 
   txtBotonRetroceso(){
-    return this.platform.is('android') ? 'Inbox':'Inicio';
+    return 'Inicio';
   }
 
   guardarTema(){
@@ -72,7 +72,7 @@ export class ThemeEditPage implements OnInit {
     axios.get('http://localhost:3000/themes/'+this.id,config)
     .then((result)=>{
       if(result.data.success){
-        if(this.id != '0'){
+        if(this.id){
           this.titulo = 'Editar'
         }
         if(result.data.tema != null){

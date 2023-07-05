@@ -59,6 +59,7 @@ export class ThemeListPage implements OnInit {
         {text:'No',handler:()=>{}}
       ]
     })
+    await alert.present();
   }
 
   async mostrarToast(mensaje:string){

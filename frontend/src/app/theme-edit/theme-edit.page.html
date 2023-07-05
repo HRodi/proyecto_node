@@ -10,10 +10,29 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">theme-edit</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" *ngIf="tema">
+  <ion-item>
+    <ion-input
+      label="Tema:" labelPlacement="stacked"
+      placeholder="Nombre del tema" [(ngModel)]="tema.name" >
+    </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input
+      label="Descripción:" labelPlacement="stacked"
+      placeholder="Descripción del tema" [(ngModel)]="tema.description">
+    </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input
+      label="Palabras clave:" labelPlacement="stacked"
+      placeholder="Palabras relacionadas con el tema" [(ngModel)]="tema.keywords">
+    </ion-input>
+  </ion-item>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="guardarTema()">
+      <ion-icon name="save"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

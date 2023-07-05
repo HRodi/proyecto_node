@@ -7,7 +7,7 @@ const ThemeModel = sequelize.define('Theme',{
         allowNull: false, primaryKey:true, autoIncrement:  true
     },
     create_date: {
-        type: DataTypes.TIME, allowNull: false
+        type: DataTypes.DATE, allowNull: false, defaultValue:DataTypes.NOW
     },
     name: {
         type: DataTypes.STRING, allowNull: false
@@ -22,7 +22,7 @@ const ThemeModel = sequelize.define('Theme',{
         type: DataTypes.INTEGER, allowNull: true
     },
     deleted: {
-        type: DataTypes.BOOLEAN, allowNull: false
+        type: DataTypes.BOOLEAN, allowNull: false, defaultValue:false
     }
 },{
     tableName: 'themes',
