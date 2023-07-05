@@ -4,5 +4,22 @@
     "pg": "^8.9.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.29.0"
-  }
+  },
+  "name": "study_app_project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HRodi/proyecto_node.git"
+  },
+  "author": "Hider",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HRodi/proyecto_node/issues"
+  },
+  "homepage": "https://github.com/HRodi/proyecto_node#readme",
+  "description": ""
 }

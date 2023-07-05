@@ -20,8 +20,24 @@ const routes: Routes = [
     loadChildren: () => import('./user-edit/user-edit.module').then( m => m.UserEditPageModule)
   },
   {
+    path: 'user-edit',
+    loadChildren: () => import('./user-edit/user-edit.module').then( m => m.UserEditPageModule)
+  },
+  {
     path: 'user-list',
     loadChildren: () => import('./user-list/user-list.module').then( m => m.UserListPageModule)
+  },
+  {
+    path: 'theme-list',
+    loadChildren: () => import('./theme-list/theme-list.module').then( m => m.ThemeListPageModule)
+  },
+  {
+    path: 'theme-edit/:id',
+    loadChildren: () => import('./theme-edit/theme-edit.module').then( m => m.ThemeEditPageModule)
+  },
+  {
+    path: 'theme-edit',
+    loadChildren: () => import('./theme-edit/theme-edit.module').then( m => m.ThemeEditPageModule)
   }
 ];
 

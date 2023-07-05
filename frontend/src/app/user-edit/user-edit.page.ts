@@ -38,9 +38,11 @@ export class UserEditPage implements OnInit {
   ngOnInit() {
     let token = localStorage.getItem('token');
     let config = { headers: { Authorization: token } };
-    axios.get('http://localhost:3000/users/' + this.id, config).then((result) => {
+    
+    axios.get('http://localhost:3000/users/' + this.id, config)
+    .then((result) => {
       if (result.data.success) {
-        if (this.id != '0') {
+        if (this.id) {
           this.titulo = 'Editar';
         }
         if (result.data.usuario != null) {
@@ -55,16 +57,13 @@ export class UserEditPage implements OnInit {
   }
 
   txtBotonRetroceso(){
-    return this.platform.is('android') ? 'Inbox':'Inicio';
+    return 'Inicio';
   }
 
   guardarUsuario(){
     let token = localStorage.getItem('token');
     let config = {headers:{Authorization: token}};
-    console.log('id', this.usuario.id,
-      'name', this.usuario.name,
-      'last_name', this.usuario.last_name,
-      'email', this.usuario.email,)
+    console.log('id', this.usuario.id,'name', this.usuario.name,)
     var data = {
       id: this.id,
       name: this.usuario.name,
@@ -74,10 +73,10 @@ export class UserEditPage implements OnInit {
     axios.post('http://localhost:3000/users/update',data,config)
     .then(async(result)=>{
       if(result.data.success){
-        this.mostrarToast('Usuario Guardado');
         this.router.navigate(['/user-list']).then(() => {
           window.location.reload();
         });
+        this.mostrarToast('Usuario Guardado');
       }else{
         this.mostrarToast(result.data.error);
       }
