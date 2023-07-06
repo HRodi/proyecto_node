@@ -7,26 +7,53 @@
       ></ion-back-button>
     </ion-buttons>
     <ion-title>{{titulo}}</ion-title>
+    <ion-buttons slot="end" *ngFor="let tema of tema">
+      <h2 class="clicable" [routerLink]="'/theme-properties-list/' + tema.id" >Propiedades</h2>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" *ngIf="tema">
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor="let tema of tema">
+    <h2 style="text-align: center">Datos actuales</h2>
+    <div style="margin: 1%; color: white">
+      <span style="font-weight: bold">Nombre del tema:</span>
+      {{tema.name}}<br />
+    </div>
+    <div style="margin: 1%; color: white">
+      <span style="font-weight: bold">Descripción del tema:</span>
+      {{tema.description}}<br />
+    </div>
+    <div style="margin: 1%; color: white">
+      <span style="font-weight: bold">Palabras relacionadas:</span>
+      {{tema.keywords}}
+    </div>
+  </ion-card>
   <ion-item>
     <ion-input
-      label="Tema:" labelPlacement="stacked"
-      placeholder="Nombre del tema" [(ngModel)]="tema.name" >
+      label="Tema:"
+      labelPlacement="stacked"
+      placeholder="Nombre del tema"
+      [(ngModel)]="tema.name"
+    >
     </ion-input>
   </ion-item>
   <ion-item>
     <ion-input
-      label="Descripción:" labelPlacement="stacked"
-      placeholder="Descripción del tema" [(ngModel)]="tema.description">
+      label="Descripción:"
+      labelPlacement="stacked"
+      placeholder="Descripción del tema"
+      [(ngModel)]="tema.description"
+    >
     </ion-input>
   </ion-item>
   <ion-item>
     <ion-input
-      label="Palabras clave:" labelPlacement="stacked"
-      placeholder="Palabras relacionadas con el tema" [(ngModel)]="tema.keywords">
+      label="Palabras clave:"
+      labelPlacement="stacked"
+      placeholder="Palabras relacionadas con el tema"
+      [(ngModel)]="tema.keywords"
+    >
     </ion-input>
   </ion-item>
 

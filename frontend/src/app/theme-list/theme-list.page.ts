@@ -25,6 +25,7 @@ export class ThemeListPage implements OnInit {
     .then((result)=>{
       if(result.data.success){
         this.temas = result.data.temas;
+        console.log('Temas obteneidos: ', this.temas)
       }else{
         console.log("Error al obtener los temas: ", result.data.error);
       }

@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" />
+    </ion-buttons>
+    <ion-title>Propiedades del Tema</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-list>
+      <ion-item *ngFor="let propiedad of propiedadesTemas">
+        <ion-label>
+          <span style="font-weight: bolder;">Propiedad</span>: {{propiedad.nombre_de_la_propiedad}}.
+          <span style="font-weight: bolder;">Valor</span>: {{propiedad.valor_de_la_propiedad}}
+        </ion-label>
+        <ion-icon class="clicable" slot="end" name="create"
+          [routerLink]="'/theme-edit/' + propiedad.id"/>
+        <ion-icon class="clicable" (click)="confirmarBorrado(propiedad.id_propiedad)"
+          slot="end" name="trash"/>
+      </ion-item>
+
+    </ion-list>
+  </ion-card>
+</ion-content>

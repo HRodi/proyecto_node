@@ -43,7 +43,8 @@ const consultarRegTheme = async function (codiBuscar) {
   console.log("consultar registros de un tema ");
   try {
     const themes = await sequelize.query(`
-    SELECT t.name AS nombre_del_Tema,
+    SELECT tp.id AS id_propiedad,
+          t.name AS nombre_del_Tema,
           t.description AS descripcion_del_tema,
           tp.property_name AS nombre_de_la_propiedad,
           tp.property_value AS valor_de_la_propiedad

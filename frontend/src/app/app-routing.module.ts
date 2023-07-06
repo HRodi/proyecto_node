@@ -38,6 +38,14 @@ const routes: Routes = [
   {
     path: 'theme-edit',
     loadChildren: () => import('./theme-edit/theme-edit.module').then( m => m.ThemeEditPageModule)
+  },
+  {
+    path: 'theme-properties/:id',
+    loadChildren: () => import('./theme-properties/theme-properties.module').then( m => m.ThemePropertiesPageModule)
+  },
+  {
+    path: 'theme-properties-list/:theme_id',
+    loadChildren: () => import('./theme-properties-list/theme-properties-list.module').then( m => m.ThemePropertiesListPageModule)
   }
 ];
 

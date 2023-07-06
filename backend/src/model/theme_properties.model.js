@@ -7,7 +7,7 @@ const ThemePropertyModel = sequelize.define('Theme_property',{
         allowNull: false, primaryKey:true, autoIncrement:  true
     },
     theme_id: {
-        type: DataTypes.TIME, allowNull: false
+        type: DataTypes.INTEGER, allowNull: false
     },
     property_name: {
         type: DataTypes.STRING, allowNull: false
@@ -16,7 +16,7 @@ const ThemePropertyModel = sequelize.define('Theme_property',{
         type: DataTypes.STRING, allowNull: false
     },
     deleted: {
-        type: DataTypes.BOOLEAN, allowNull: false
+        type: DataTypes.BOOLEAN, allowNull: false, defaultValue:false
     }
 },{
     tableName: 'themes_properties',

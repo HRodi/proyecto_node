@@ -11,7 +11,7 @@ import axios from 'axios';
 export class ThemeEditPage implements OnInit {
   private activatedRoute = inject(ActivatedRoute);
   private platform = inject(Platform);
-  tema: any='';
+  public tema: any='';
   titulo='Agregar un tema';
   id=this.activatedRoute.snapshot.paramMap.get('id')as string;
   
@@ -55,7 +55,6 @@ export class ThemeEditPage implements OnInit {
     axios.post('http://localhost:3000/themes/update',data,config)
     .then(async(result)=>{
       if(result.data.success){
-        this.mostrarToast('Tema Guardado');
         this.router.navigate(['/theme-list']).then(()=>{
           window.location.reload();
         });
@@ -78,7 +77,7 @@ export class ThemeEditPage implements OnInit {
         if(result.data.tema != null){
           this.tema = result.data.tema;
         }else{
-          this.tema = {};
+          this.tema = '';
         }
       }else{
         console.log('No se pudo obtener el tema: ',result.data.error);
