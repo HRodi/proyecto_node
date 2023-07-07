@@ -1,13 +1,47 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>theme-properties</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button
+        [text]="txtBotonRetroceso()"
+        defaultHref="/"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{titulo}}</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">theme-properties</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card *ngFor="let propiedad of propiedadTema">
+    <h2 style="text-align: center">Datos actuales</h2>
+    <div style="margin: 1%; color: white">
+      <span style="font-weight: bold">Nombre de la propiedad:</span>
+      {{propiedad.property_name}}
+    </div>
+    <div style="margin: 1%; color: white">
+      <span style="font-weight: bold">Valor de la propiedad:</span>
+      {{propiedad.property_value}}
+    </div>
+  </ion-card>
+  <ion-item>
+    <ion-input
+      label="Propiedad:"
+      labelPlacement="stacked"
+      placeholder="Nombre de la Propiedad"
+      [(ngModel)]="propiedadTema.property_name"
+    >
+    </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input
+      label="Valor:"
+      labelPlacement="stacked"
+      placeholder="Valor de la Propiedad"
+      [(ngModel)]="propiedadTema.property_value"
+    >
+    </ion-input>
+  </ion-item>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="guardarPropiedad()">
+      <ion-icon name="save"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

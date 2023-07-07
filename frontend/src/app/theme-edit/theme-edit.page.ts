@@ -10,7 +10,6 @@ import axios from 'axios';
 })
 export class ThemeEditPage implements OnInit {
   private activatedRoute = inject(ActivatedRoute);
-  private platform = inject(Platform);
   public tema: any='';
   titulo='Agregar un tema';
   id=this.activatedRoute.snapshot.paramMap.get('id')as string;

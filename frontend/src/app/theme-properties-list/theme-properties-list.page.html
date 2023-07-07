@@ -16,7 +16,7 @@
           <span style="font-weight: bolder;">Valor</span>: {{propiedad.valor_de_la_propiedad}}
         </ion-label>
         <ion-icon class="clicable" slot="end" name="create"
-          [routerLink]="'/theme-edit/' + propiedad.id"/>
+          [routerLink]="'/theme-properties/' + propiedad.id_propiedad"/>
         <ion-icon class="clicable" (click)="confirmarBorrado(propiedad.id_propiedad)"
           slot="end" name="trash"/>
       </ion-item>

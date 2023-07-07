@@ -40,7 +40,7 @@ const routes: Routes = [
     loadChildren: () => import('./theme-edit/theme-edit.module').then( m => m.ThemeEditPageModule)
   },
   {
-    path: 'theme-properties/:id',
+    path: 'theme-properties/:property_id',
     loadChildren: () => import('./theme-properties/theme-properties.module').then( m => m.ThemePropertiesPageModule)
   },
   {
