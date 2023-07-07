@@ -60,7 +60,7 @@ export class TopicEditPage implements OnInit {
     .then(async(result)=>{
       if(result.data.success){
         this.router.navigate(['topic-list',localStorage.getItem('temaTopico')])
-        .then(()=>{localStorage.removeItem('temaTopico')});
+        .then(()=>{window.location.reload()});
       }else{
         this.mostrarToast(result.data.error)
       }

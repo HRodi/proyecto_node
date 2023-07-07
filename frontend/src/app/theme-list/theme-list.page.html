@@ -18,9 +18,11 @@
             Creado el: {{tema.create_date}}
           </div>
         </ion-label>
-        <ion-icon class="clicable" slot="end" name="create"
+        <ion-icon class="clicable" slot="end" name="list" title="Tópicos de este tema"
+          [routerLink]="'/topic-list/' + tema.id"/>
+        <ion-icon class="clicable" slot="end" name="create" title="Editar"
           [routerLink]="'/theme-edit/' + tema.id"/>
-        <ion-icon class="clicable" (click)="confirmarBorrado(tema.id)"
+        <ion-icon class="clicable" (click)="confirmarBorrado(tema.id)" title="Borrar"
           slot="end" name="trash"/>
       </ion-item>
       <ion-item class="itemAgregar">

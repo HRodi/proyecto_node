@@ -59,7 +59,7 @@ export class ThemePropertiesPage implements OnInit {
     .then(async(result)=>{
       if(result.data.success){
         this.router.navigate(['/theme-properties-list',localStorage.getItem('tema')])
-        .then(()=>{localStorage.removeItem('tema')});
+        .then(()=>{window.location.reload()});
       }else{
         this.mostrarToast(result.data.error);
       }

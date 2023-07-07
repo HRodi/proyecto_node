@@ -13,17 +13,17 @@
       <ion-item *ngFor="let usuario of usuarios">
         <ion-label [routerLink]="'/user-edit/' + usuario.id"
           >{{usuario.name}} {{usuario.last_name}}</ion-label>
-        <ion-icon class="clicable" slot="end" name="create"
+        <ion-icon class="clicable" slot="end" name="create" title="Editar"
           [routerLink]="'/user-edit/' + usuario.id"
         />
         <ion-icon class="clicable"
-          (click)="confirmarBorrado(usuario.id)"
+          (click)="confirmarBorrado(usuario.id)" title="Eliminar"
           slot="end"
           name="trash"
         />
       </ion-item>
-      <ion-item class="itemAgregar">
-        <ion-label class="btnAgregarUsuario" routerLink="/user-edit">
+      <ion-item>
+        <ion-label class="btnAgregar" routerLink="/user-edit">
           Agregar <ion-icon name="add" />
         </ion-label>
       </ion-item>

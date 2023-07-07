@@ -15,9 +15,9 @@
           {{topico.nombre_topico}}
           <span style="font-weight: bolder;">Fecha</span>: {{topico.fecha_topico}}
         </ion-label>
-        <ion-icon class="clicable" slot="end" name="create"
+        <ion-icon class="clicable" slot="end" name="create" title="Editar"
           [routerLink]="'/topic-edit/' + topico.id_topico"/>
-        <ion-icon class="clicable" (click)="confirmarBorrado(topico.id_topico)"
+        <ion-icon class="clicable" (click)="confirmarBorrado(topico.id_topico)" title="Eliminar"
           slot="end" name="trash"/>
       </ion-item>
       <ion-item class="itemAgregar">
