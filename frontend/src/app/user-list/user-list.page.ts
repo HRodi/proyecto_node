@@ -73,7 +73,7 @@ export class UserListPage implements OnInit {
   }
 
   ngOnInit() {
-    this.buscarUsuarios();
+    this.ionVerificarToken();
   }
 
 }

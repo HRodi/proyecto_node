@@ -73,6 +73,6 @@ export class ThemeListPage implements OnInit {
   }
 
   ngOnInit() {
-    this.buscarTemas();
+    this.ionVerificarToken()
   }
 }
