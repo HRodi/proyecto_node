@@ -3,7 +3,7 @@ const TopicService = require("../../service/topics.service");
 const listar = async function (req, res) {
   console.log("listar topicos controller");
   try {
-    const topics = await TopicService.listar(req.query.filtro || '')
+    const topics = await TopicService.listar(req.query.filtro || "");
 
     if (topics) {
       res.json({
@@ -48,6 +48,21 @@ const consultarPorCodigo = async function (req, res) {
   }
 };
 
+const consultarTopicoDeTema = async function (req,res){
+  console.log("Consultar los tópicos correspondientes a un tema (controller)");
+  try{
+    const topTem = await TopicService.consultarTopicoDeTema(req.params.id);
+    console.log("Tópicos del tema", topTem);
+    if(topTem && topTem[0] && topTem[0][0]){
+      res.json({success:true, topTem:topTem[0][0]});
+    }else{
+      res.json({success:true,topTem:topTem});
+    }
+  }catch(error){
+    res.json({success:false,error:error.message});
+  }
+}
+
 const actualizar = async function (req, res) {
   console.log("actualizar topicos");
   //res.send("actualizción de topicos");
@@ -56,15 +71,17 @@ const actualizar = async function (req, res) {
   const data = req.body; //Se obtienen datos del cuerpo de la petición
   const id = req.body.id;
   try {
-    topicoRetorno = await TopicService.actualizar(req.body.id,
+    topicoRetorno = await TopicService.actualizar(
+      req.body.id,
       req.body.create_date,
       req.body.name,
-      req.body.theme_id,
+      req.body.themes_id,
       req.body.order,
       req.body.priority,
       req.body.color,
-      req.body.deleted)
-    
+      req.body.deleted
+    );
+
     res.json({
       success: true,
       topic: topicoRetorno,
@@ -81,11 +98,9 @@ const eliminar = async function (req, res) {
   console.log("eliminar topicos");
   //res.send("eliminar de topicos");
 
-  await TopicService.eliminar(req.params.id)
+  await TopicService.eliminar(req.params.id);
 
-  res.json({
-    success: true,
-  });
+  res.json({success: true});
 };
 
 module.exports = {
@@ -93,4 +108,5 @@ module.exports = {
   actualizar,
   eliminar,
   consultarPorCodigo,
+  consultarTopicoDeTema
 };

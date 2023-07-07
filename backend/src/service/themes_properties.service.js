@@ -7,8 +7,8 @@ const listar = async function (textoBuscar) {
     const themesProperties = await sequelize.query(`SELECT *
                                           FROM themes_properties
                                           WHERE 1=1
-                                            AND property_name LIKE '%${textoBuscar}%'
-                                            AND deleted IS false
+                                           AND property_name LIKE '%${textoBuscar}%'
+                                           AND deleted IS false
                                           ORDER BY id`);
     if (themesProperties && themesProperties[0]){
       return themesProperties[0];
@@ -64,7 +64,7 @@ const consultarRegTheme = async function (codiBuscar) {
 
 const actualizar = async function (id, theme_id, property_name, property_value, deleted) {
   console.log("actualizar propiedades de temas");
-  //res.send("actualizción de temas");
+  //res.send("actualizción de propiedades de temas");
   //Variables
   let temaPropiedadRetorno = null; //Guarda la propiedad de tema que se va a incluir o editar.
   const data = {id, theme_id, property_name, property_value, deleted}

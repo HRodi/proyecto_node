@@ -7,12 +7,12 @@ const TopicModel = sequelize.define('Topic',{
         allowNull: false, primaryKey:true, autoIncrement:  true
     },
     create_date: {
-        type: DataTypes.TIME, allowNull: false
+        type: DataTypes.DATE, allowNull: false, defaultValue:DataTypes.NOW
     },
     name: {
         type: DataTypes.STRING, allowNull: true
     },
-    theme_id: {
+    themes_id: {
         type: DataTypes.INTEGER, allowNull: true
     },
     order: {
@@ -25,7 +25,7 @@ const TopicModel = sequelize.define('Topic',{
         type: DataTypes.STRING, allowNull: true
     },
     deleted: {
-        type: DataTypes.BOOLEAN, allowNull: false
+        type: DataTypes.BOOLEAN, allowNull: false, defaultValue:false
     }
 },{
     tableName: 'topics',
