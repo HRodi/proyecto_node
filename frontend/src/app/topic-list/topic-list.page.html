@@ -3,25 +3,25 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/" />
     </ion-buttons>
-    <ion-title>Propiedades del Tema</ion-title>
+    <ion-title>Topicos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-card>
     <ion-list>
-      <ion-item *ngFor="let propiedad of propiedadesTemas">
+      <ion-item *ngFor="let topico of topicos">
         <ion-label>
-          <span style="font-weight: bolder;">Propiedad</span>: {{propiedad.nombre_de_la_propiedad}}.
-          <span style="font-weight: bolder;">Valor</span>:{{propiedad.valor_de_la_propiedad}}
+          {{topico.nombre_topico}}
+          <span style="font-weight: bolder;">Fecha</span>: {{topico.fecha_topico}}
         </ion-label>
         <ion-icon class="clicable" slot="end" name="create"
-          [routerLink]="'/theme-properties/' + propiedad.id_propiedad"/>
-        <ion-icon class="clicable" (click)="confirmarBorrado(propiedad.id_propiedad)"
+          [routerLink]="'/topic-edit/' + topico.id_topico"/>
+        <ion-icon class="clicable" (click)="confirmarBorrado(topico.id_topico)"
           slot="end" name="trash"/>
       </ion-item>
       <ion-item class="itemAgregar">
-        <ion-label class="btnAgregar" routerLink="/theme-properties">
+        <ion-label class="btnAgregar" routerLink="/topic-edit">
           Agregar <ion-icon name="add" />
         </ion-label>
       </ion-item>

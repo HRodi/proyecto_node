@@ -1,0 +1,35 @@
+.clicable{
+    background-color:#428cff;
+    color:white;
+    padding: 0.4%;
+    border-radius: 5px;
+    cursor:pointer;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+.clicable:hover{
+    background-color:#5e9cff;
+    padding: 0.4%;
+    border-radius: px;
+    cursor:pointer;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+.btnAgregar{
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.btnAgregar:hover{
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+    background-color:#535353;
+    padding: 1%;
+    margin: 0%;
+    border-radius: 5px;
+    cursor:pointer;
+}

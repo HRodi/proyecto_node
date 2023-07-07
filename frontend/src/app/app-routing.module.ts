@@ -50,6 +50,18 @@ const routes: Routes = [
   {
     path: 'theme-properties-list/:theme_id',
     loadChildren: () => import('./theme-properties-list/theme-properties-list.module').then( m => m.ThemePropertiesListPageModule)
+  },
+  {
+    path: 'topic-list/:theme_id',
+    loadChildren: () => import('./topic-list/topic-list.module').then( m => m.TopicListPageModule)
+  },
+  {
+    path: 'topic-edit',
+    loadChildren: () => import('./topic-edit/topic-edit.module').then( m => m.TopicEditPageModule)
+  },
+  {
+    path: 'topic-edit/:topic_id',
+    loadChildren: () => import('./topic-edit/topic-edit.module').then( m => m.TopicEditPageModule)
   }
 ];
 

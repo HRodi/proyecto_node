@@ -1,7 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { Location } from '@angular/common'
 import axios from 'axios';
 
 @Component({
@@ -20,7 +19,6 @@ export class ThemePropertiesPage implements OnInit {
   constructor(
     private toastController: ToastController,
     private router: Router,
-    private location: Location,
   ) {}
 
   async mostrarToast(mensaje: string) {
@@ -60,9 +58,8 @@ export class ThemePropertiesPage implements OnInit {
     axios.post('http://localhost:3000/themes_properties/update',data,config)
     .then(async(result)=>{
       if(result.data.success){
-        this.router.navigate(['/theme-properties-list',localStorage.getItem('tema')]).then(()=>{
-          localStorage.removeItem('tema')
-        });
+        this.router.navigate(['/theme-properties-list',localStorage.getItem('tema')])
+        .then(()=>{localStorage.removeItem('tema')});
       }else{
         this.mostrarToast(result.data.error);
       }

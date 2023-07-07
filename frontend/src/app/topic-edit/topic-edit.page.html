@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        [text]="txtBotonRetroceso()"
+        defaultHref="/"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{titulo}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor="let topico of topico">
+    <h2 style="text-align: center">Datos actuales</h2>
+    <div style="margin: 1%; color: white">
+      <span style="font-weight: bold">Topico:</span>
+      {{topico.name}}
+    </div>
+    <div style="margin: 1%; color: white">
+      <span style="font-weight: bold">Fecha:</span>
+      {{topico.create_date}}
+    </div>
+  </ion-card>
+  <ion-item>
+    <ion-input
+      label="Topico:"
+      labelPlacement="stacked"
+      placeholder="Nuevo nombre"
+      [(ngModel)]="topico.name"
+    >
+    </ion-input>
+  </ion-item>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="guardarTopico()">
+      <ion-icon name="save"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
