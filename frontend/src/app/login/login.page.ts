@@ -31,7 +31,7 @@ export class LoginPage implements OnInit {
 
   logoutUsuario(){
     //localStorage.removeItem('token');
-    axios.post('http://localhost:3000/user/logout/1')
+    axios.get('http://localhost:3000/user/logout/1')
     .then(async(result)=>{
       if(result.data.success){
         localStorage.removeItem('token');
