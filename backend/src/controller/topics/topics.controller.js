@@ -59,11 +59,10 @@ const actualizar = async function (req, res) {
     topicoRetorno = await TopicService.actualizar(req.body.id,
       req.body.create_date,
       req.body.name,
-      req.body.topic_id,
+      req.body.theme_id,
       req.body.order,
       req.body.priority,
       req.body.color,
-      req.body.owner_user_id,
       req.body.deleted)
     
     res.json({

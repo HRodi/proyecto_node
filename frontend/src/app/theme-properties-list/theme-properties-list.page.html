@@ -20,7 +20,11 @@
         <ion-icon class="clicable" (click)="confirmarBorrado(propiedad.id_propiedad)"
           slot="end" name="trash"/>
       </ion-item>
-
+      <ion-item class="itemAgregar">
+        <ion-label class="btnAgregar" routerLink="/theme-properties">
+          Agregar <ion-icon name="add" />
+        </ion-label>
+      </ion-item>
     </ion-list>
   </ion-card>
 </ion-content>

@@ -44,6 +44,10 @@ const routes: Routes = [
     loadChildren: () => import('./theme-properties/theme-properties.module').then( m => m.ThemePropertiesPageModule)
   },
   {
+    path: 'theme-properties',
+    loadChildren: () => import('./theme-properties/theme-properties.module').then( m => m.ThemePropertiesPageModule)
+  },
+  {
     path: 'theme-properties-list/:theme_id',
     loadChildren: () => import('./theme-properties-list/theme-properties-list.module').then( m => m.ThemePropertiesListPageModule)
   }

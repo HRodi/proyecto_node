@@ -75,5 +75,6 @@ export class ThemePropertiesListPage implements OnInit {
   }
   ngOnInit() {
     this.buscarPropiedadesTemas();
+    localStorage.setItem('tema',this.idTema)
   }
 }

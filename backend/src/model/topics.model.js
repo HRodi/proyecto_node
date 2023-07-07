@@ -12,7 +12,7 @@ const TopicModel = sequelize.define('Topic',{
     name: {
         type: DataTypes.STRING, allowNull: true
     },
-    topic_id: {
+    theme_id: {
         type: DataTypes.INTEGER, allowNull: true
     },
     order: {
@@ -23,9 +23,6 @@ const TopicModel = sequelize.define('Topic',{
     },
     color: {
         type: DataTypes.STRING, allowNull: true
-    },
-    owner_user_id: {
-        type: DataTypes.INTEGER, allowNull: true
     },
     deleted: {
         type: DataTypes.BOOLEAN, allowNull: false

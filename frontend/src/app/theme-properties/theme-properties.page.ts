@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Location } from '@angular/common'
 import axios from 'axios';
-import { ThemePropertiesListPage } from '../theme-properties-list/theme-properties-list.page';
 
 @Component({
   selector: 'app-theme-properties',
@@ -49,18 +48,21 @@ export class ThemePropertiesPage implements OnInit {
     let token = localStorage.getItem('token');
     let config = { headers: { Authorization: token } };
     console.log('id_propiedad:', this.propiedadTema.id_propiedad,
-      'Descripción', this.propiedadTema.descripcion_del_tema
+      'Descripción', this.propiedadTema.descripcion_del_tema,
+      'idTema:',this.propiedadTema.theme_id
     );
     var data = {
       id: this.idPropiedad,
-      theme_id: this.propiedadTema.theme_id,
+      theme_id: localStorage.getItem('tema'),
       property_name: this.propiedadTema.property_name,
       property_value: this.propiedadTema.property_value,
     };
     axios.post('http://localhost:3000/themes_properties/update',data,config)
     .then(async(result)=>{
       if(result.data.success){
-        window.location.reload();
+        this.router.navigate(['/theme-properties-list',localStorage.getItem('tema')]).then(()=>{
+          localStorage.removeItem('tema')
+        });
       }else{
         this.mostrarToast(result.data.error);
       }
